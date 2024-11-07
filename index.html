@@ -16,11 +16,12 @@
             align-items: center;
         }
 
-        .planets{
+        .planets-img{
             height: 400px;
-            width: 600px;   
+            width: 750px;  
+            object-fit: cover; 
             border-radius: 10px;
-            border: 2px solid black;
+            box-shadow: 0 0 15px 1px black;
         }
 
         .arrow{
@@ -44,8 +45,38 @@
 
     <div class="main-container">
         <img src="./images/left-arrow.png" class="arrow left" onclick="previous()">
-        <img src="./images/solarsystem.jpg" class="planets" id="planets">
+        <img src="./images/solarsystem.jpg" class="planets-img" id="planets-img">
         <img src="./images/right-arrow.png" class="arrow right" onclick="next()">
     </div>
+
+
+    <script>
+        const planets = ["./images/solarsystem.jpg", "./images/mercury.jpg", "./images/venus.jpg", "./images/earth.jpg", "./images/mars.jpg", "./images/jupiter.jpg", "./images/saturn.jpg", "./images/uranus.jpg", "./images/neptune.jpg", "./images/pluto.jpg"]
+
+        let index = 0;
+        const slideElement = document.getElementById('planets-img');
+
+        function next(){               
+            if(index < planets.length -1){
+                index ++;
+            }
+            else{
+                index = 0;
+            }
+            slideElement.src = planets[index]       
+        }
+
+        function previous(){                 
+            if(index > 0){
+                index-- ;
+            }
+            else{
+                index = planets.length -1;
+            }
+            slideElement.src = planets[index]     
+        }
+
+        setInterval(next, 2500)
+    </script>
 </body>
 </html>

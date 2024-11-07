@@ -1,11 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar System</title>
+
+    <style>
+        h1{
+            text-align: center;
+            font-size: 80px;
+        }
+
+        .main-container{
+            width: fit-content;
+            margin: 50px auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .planets{
+            height: 400px;
+            width: 600px;   
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+
+        .arrow{
+            height: 70px;
+            margin: 30px;
+            cursor: pointer;
+            transition: 0.5;
+        }
+
+        .left:hover{
+            transform: scale(0.8) translateX(-10px);
+        }
+
+        .right:hover{
+            transform: scale(0.8) translateX(10px);
+        }
+    </style>
 </head>
 <body>
     <h1>Solar System</h1>
+
+    <div class="main-container">
+        <img src="./images/left-arrow.png" class="arrow left" onclick="previous()">
+        <img src="./images/solarsystem.jpg" class="planets" id="planets">
+        <img src="./images/right-arrow.png" class="arrow right" onclick="next()">
+    </div>
 </body>
 </html>
